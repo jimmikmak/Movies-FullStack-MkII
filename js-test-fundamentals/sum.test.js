@@ -1,12 +1,19 @@
-const assert = require("assert");
-
+const { expect } = require("@jest/globals");
 const sum = require("./sum");
 
-const result = sum(4, 8);
-assert.strictEqual(12, result);
+test("Adds two integers", () => {
+  const result = sum(4, 8);
+  expect(result).toBe(12);
+});
 
 const result2 = sum("4", "8");
-assert.strictEqual(12, result2);
 
-const result3 = sum([3, 4], 9);
-assert.strictEqual("Error", result3);
+test("Adds two strings as numbers", () => {
+  const result = sum("4", "8");
+  expect(result).toBe(12);
+});
+
+test("Error when passing array as one of the parameters", () => {
+  const result = sum([3, 4], 9);
+  expect(result).toBe("Error");
+});
