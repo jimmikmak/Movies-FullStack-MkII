@@ -17,7 +17,7 @@ export const MovieAddForm = () => {
   };
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} data-testid="MovieAdd">
         <label>
           Title
           <input value={formState.title} name="title" onChange={handleChange} />
